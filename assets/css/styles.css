@@ -1,13 +1,10 @@
-/* Importando uma fonte bonita do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
-/* Variáveis de Cor (para fácil customização) */
 :root {
-  /* Este é um rosa/vinho elegante. Sinta-se à vontade para mudar! */
   --cor-primaria: #c7537b; 
-  --cor-secundaria: #f8f9fa; /* Cinza claro do Bootstrap */
+  --cor-secundaria: #f8f9fa; 
   --cor-texto: #333;
-  --cor-sucesso: #198754; /* Verde do Bootstrap */
+  --cor-sucesso: #198754; 
   --fonte-titulo: 'Playfair Display', serif;
   --fonte-corpo: 'Montserrat', sans-serif;
 }
@@ -23,8 +20,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--fonte-titulo);
   color: var(--cor-primaria);
 }
-
-/* --- Personalizando Componentes Bootstrap --- */
 
 /* Cabeçalho */
 .navbar-brand {
@@ -53,7 +48,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 .btn-primary:hover {
-  background-color: #a34164; /* Tom mais escuro */
+  background-color: #a34164;
   border-color: #a34164;
   transform: translateY(-2px);
 }
@@ -80,14 +75,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/* --- Estilos da Home (index.html) --- */
+/* Estilos da index*/
 
 /* Carrossel */
 #carrossel-destaques .carousel-item img {
-  height: 60vh; /* Altura de 60% da tela */
+  height: 60vh; 
   min-height: 400px;
-  object-fit: cover; /* Garante que a imagem cubra o espaço */
-  filter: brightness(0.7); /* Escurece a img para o texto aparecer */
+  object-fit: cover; 
+  filter: brightness(0.7); 
 }
 
 #carrossel-destaques .carousel-caption {
@@ -108,12 +103,12 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 8px;
 }
 .card:hover {
-  transform: translateY(-5px); /* Efeito de "levantar" */
+  transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
 }
 .card-img-top {
   height: 280px;
-  object-fit: cover; /* Imagens uniformes */
+  object-fit: cover;
 }
 .card-footer {
   background-color: white;
@@ -130,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* --- Estilos da Página de Detalhe --- */
+/* Estilos da Página de Detalhe */
 
 #info-gerais img {
   max-height: 500px;
@@ -146,12 +141,10 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
 }
 
-/* --- Responsividade (Exigência do trabalho) --- */
+/* Responsividade */
 
-@media (max-width: 768px) {
-  /* Celulares e Tablets */
-  
-  /* Ajusta altura do carrossel no mobile */
+@media (max-width: 768px) { /* Celulares e Tablets */
+ 
   #carrossel-destaques .carousel-item img {
     height: 40vh;
     min-height: 250px;
@@ -163,12 +156,9 @@ h1, h2, h3, h4, h5, h6 {
   #carrossel-destaques .carousel-caption h5 {
     font-size: 1.8rem;
   }
-
   h2 {
     font-size: 1.8rem;
   }
-  
-  /* Na página de detalhes, centraliza e empilha */
   #info-gerais {
     text-align: center;
   }

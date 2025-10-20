@@ -80,38 +80,34 @@ const dados = {
   ]
 }
 
-// --- INÍCIO DO CÓDIGO DA APLICAÇÃO ---
+// INÍCIO DO CÓDIGO DA APLICAÇÃO
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // Verifica em qual página estamos
+
   if (document.getElementById('secao-destaques')) {
-    // Estamos na index.html
+
     carregarDestaques();
     carregarTodosProdutos();
   } else if (document.getElementById('detalhe-produto-container')) {
-    // Estamos na detalhe.html
+ 
     carregarDetalhesProduto();
   }
 
 });
 
-// --- FUNÇÕES DA INDEX.HTML ---
+// FUNÇÕES DA INDEX.HTML
 
 function carregarDestaques() {
   const container = document.getElementById('carrossel-inner-container');
-  if (!container) return; // Segurança
+  if (!container) return; 
 
-  container.innerHTML = ''; // <-- CORREÇÃO 1: Limpa o "Carregando destaques..."
-
-  // 1. Filtrar apenas os produtos com "destaque: true"
+  container.innerHTML = '';
   const produtosDestaque = dados.produtos.filter(p => p.destaque === true);
 
-  if (produtosDestaque.length === 0) return; // Não faz nada se não houver destaques
-
-  // 2. Gerar o HTML para cada item do carrossel
+  if (produtosDestaque.length === 0) return; 
   produtosDestaque.forEach((produto, index) => {
-    const activeClass = (index === 0) ? 'active' : ''; // Só o primeiro item é 'active'
+    const activeClass = (index === 0) ? 'active' : '';
 
     const itemHtml = `
       <div class="carousel-item ${activeClass}">
@@ -131,14 +127,9 @@ function carregarTodosProdutos() {
   const container = document.getElementById('cards-container');
   if (!container) return;
 
-  container.innerHTML = ''; // <-- CORREÇÃO 2: Limpa o "Carregando produtos..."
-
-  // 1. Usar TODOS os produtos
+  container.innerHTML = '';
   dados.produtos.forEach(produto => {
 
-    // CORREÇÃO 3: O 'const cardHtml' duplicado e quebrado foi REMOVIDO daqui.
-
-    // 2. Gerar o HTML do Card para cada produto
     const cardHtml = `
       <div class="col">
         <div class="card h-100 shadow-sm">
@@ -160,34 +151,26 @@ function carregarTodosProdutos() {
 }
 
 
-// --- FUNÇÕES DA DETALHE.HTML ---
-
+//  FUNÇÕES DA DETALHE.HTML 
 function carregarDetalhesProduto() {
-  // 1. Pegar o 'id' da URL (Query String)
   const params = new URLSearchParams(window.location.search);
   const idProduto = params.get('id');
 
   if (!idProduto) {
-    window.location.href = 'index.html'; // Se não tem ID, volta pra home
+    window.location.href = 'index.html'; 
     return;
   }
 
-  // 2. Encontrar o produto no JSON usando o ID
-  // Usamos '==' pois o id da URL é string e o do JSON é número
   const produto = dados.produtos.find(p => p.id == idProduto);
 
   if (!produto) {
     alert('Produto não encontrado!');
-    window.location.href = 'index.html'; // Se ID não existe, volta pra home
+    window.location.href = 'index.html';
     return;
   }
-
-  // Mudar o <title> da página para o nome do produto
   document.title = produto.nome + " - Detalhes";
 
-  // 3. Preencher as informações gerais (Layout Personalizado)
   const infoContainer = document.getElementById('info-gerais');
-  // Aqui está o "LAYOUT PERSONALIZADO" com 5+ itens
   infoContainer.innerHTML = `
     <div class="col-md-6">
       <img src="${produto.imagem_principal}" class="img-fluid rounded shadow-lg" alt="${produto.nome}">
@@ -204,11 +187,10 @@ function carregarDetalhesProduto() {
     </div>
   `;
 
-  // 4. Preencher a galeria de "Fotos Vinculadas"
   const galeriaContainer = document.getElementById('galeria-container');
 
   if (produto.galeria && produto.galeria.length > 0) {
-    galeriaContainer.innerHTML = ''; // Limpa antes de adicionar
+    galeriaContainer.innerHTML = ''; 
     produto.galeria.forEach(foto => {
       const fotoHtml = `
         <div class="col">
@@ -223,7 +205,6 @@ function carregarDetalhesProduto() {
       galeriaContainer.innerHTML += fotoHtml;
     });
   } else {
-    // Limpa o container e o título se não houver galeria
     const secaoGaleria = document.getElementById('fotos-vinculadas');
     if (secaoGaleria) {
       secaoGaleria.innerHTML = "<p class='text-center'>Não há fotos extras para este produto.</p>";
