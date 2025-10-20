@@ -1,6 +1,9 @@
 # 💄 Maquiadoro
 💻 Projeto: Site de Vendas de Maquiagem
 
+10/2025
+1º Semestre
+
 Este projeto foi desenvolvido como parte da disciplina Desenvolvimento de Interfaces Web do curso de Engenharia de Software da PUC Minas.
 O objetivo é criar um site de e-commerce voltado para a venda de produtos de maquiagem, aplicando conceitos de HTML, CSS, JavaScript e boas práticas de design de interfaces.
 
