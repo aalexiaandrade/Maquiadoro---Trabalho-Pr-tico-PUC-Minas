@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
 
 :root {
   --cor-primaria: #c7537b; 
-  --cor-secundaria: #f8f9fa; 
+  --cor-secundaria: #f8f9fa;
   --cor-texto: #333;
-  --cor-sucesso: #198754; 
+  --cor-sucesso: #198754;
   --fonte-titulo: 'Playfair Display', serif;
   --fonte-corpo: 'Montserrat', sans-serif;
 }
@@ -21,7 +22,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--cor-primaria);
 }
 
-/* Cabeçalho */
 .navbar-brand {
   font-family: var(--fonte-titulo);
   font-weight: 700;
@@ -40,7 +40,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--cor-primaria) !important;
 }
 
-/* Botões */
 .btn-primary {
   background-color: var(--cor-primaria);
   border-color: var(--cor-primaria);
@@ -74,15 +73,11 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #146c43;
 }
 
-
-/* Estilos da index*/
-
-/* Carrossel */
 #carrossel-destaques .carousel-item img {
-  height: 60vh; 
+  height: 60vh;
   min-height: 400px;
-  object-fit: cover; 
-  filter: brightness(0.7); 
+  object-fit: cover;
+  filter: brightness(0.7);
 }
 
 #carrossel-destaques .carousel-caption {
@@ -96,7 +91,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-/* Cards de Produto */
 .card {
   transition: all 0.3s ease;
   border: 1px solid #eee;
@@ -115,7 +109,6 @@ h1, h2, h3, h4, h5, h6 {
   border-top: none;
 }
 
-/* Seção Aluno */
 #secao-aluno {
   background-color: var(--cor-secundaria);
 }
@@ -124,8 +117,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--fonte-corpo);
   font-weight: 700;
 }
-
-/* Estilos da Página de Detalhe */
 
 #info-gerais img {
   max-height: 500px;
@@ -141,10 +132,16 @@ h1, h2, h3, h4, h5, h6 {
   object-fit: cover;
 }
 
-/* Responsividade */
+.footer-socials a {
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.footer-socials a:hover {
+  color: var(--cor-primaria) !important;
+}
 
-@media (max-width: 768px) { /* Celulares e Tablets */
- 
+
+@media (max-width: 768px) {
   #carrossel-destaques .carousel-item img {
     height: 40vh;
     min-height: 250px;
@@ -156,9 +153,11 @@ h1, h2, h3, h4, h5, h6 {
   #carrossel-destaques .carousel-caption h5 {
     font-size: 1.8rem;
   }
+
   h2 {
     font-size: 1.8rem;
   }
+  
   #info-gerais {
     text-align: center;
   }
