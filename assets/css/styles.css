@@ -1,0 +1,178 @@
+/* Importando uma fonte bonita do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+/* Variáveis de Cor (para fácil customização) */
+:root {
+  /* Este é um rosa/vinho elegante. Sinta-se à vontade para mudar! */
+  --cor-primaria: #c7537b; 
+  --cor-secundaria: #f8f9fa; /* Cinza claro do Bootstrap */
+  --cor-texto: #333;
+  --cor-sucesso: #198754; /* Verde do Bootstrap */
+  --fonte-titulo: 'Playfair Display', serif;
+  --fonte-corpo: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-primaria);
+}
+
+/* --- Personalizando Componentes Bootstrap --- */
+
+/* Cabeçalho */
+.navbar-brand {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--cor-primaria) !important;
+}
+
+.navbar .nav-link {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: var(--cor-primaria) !important;
+}
+
+/* Botões */
+.btn-primary {
+  background-color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #a34164; /* Tom mais escuro */
+  border-color: #a34164;
+  transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+  color: var(--cor-primaria);
+  border-color: var(--cor-primaria);
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.btn-outline-primary:hover {
+  background-color: var(--cor-primaria);
+  color: white;
+}
+
+.btn-success {
+  background-color: var(--cor-sucesso);
+  border-color: var(--cor-sucesso);
+  font-weight: 700;
+}
+.btn-success:hover {
+  background-color: #146c43;
+  border-color: #146c43;
+}
+
+
+/* --- Estilos da Home (index.html) --- */
+
+/* Carrossel */
+#carrossel-destaques .carousel-item img {
+  height: 60vh; /* Altura de 60% da tela */
+  min-height: 400px;
+  object-fit: cover; /* Garante que a imagem cubra o espaço */
+  filter: brightness(0.7); /* Escurece a img para o texto aparecer */
+}
+
+#carrossel-destaques .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+  padding: 20px;
+  bottom: 20%;
+}
+#carrossel-destaques .carousel-caption h5 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* Cards de Produto */
+.card {
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+.card:hover {
+  transform: translateY(-5px); /* Efeito de "levantar" */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
+}
+.card-img-top {
+  height: 280px;
+  object-fit: cover; /* Imagens uniformes */
+}
+.card-footer {
+  background-color: white;
+  border-top: none;
+}
+
+/* Seção Aluno */
+#secao-aluno {
+  background-color: var(--cor-secundaria);
+}
+#secao-aluno h3 {
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-weight: 700;
+}
+
+/* --- Estilos da Página de Detalhe --- */
+
+#info-gerais img {
+  max-height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+#info-gerais .text-primary {
+  color: var(--cor-primaria) !important;
+}
+
+#galeria-container .card-img-top {
+  height: 250px;
+  object-fit: cover;
+}
+
+/* --- Responsividade (Exigência do trabalho) --- */
+
+@media (max-width: 768px) {
+  /* Celulares e Tablets */
+  
+  /* Ajusta altura do carrossel no mobile */
+  #carrossel-destaques .carousel-item img {
+    height: 40vh;
+    min-height: 250px;
+  }
+  #carrossel-destaques .carousel-caption {
+    bottom: 10%;
+    padding: 10px;
+  }
+  #carrossel-destaques .carousel-caption h5 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  /* Na página de detalhes, centraliza e empilha */
+  #info-gerais {
+    text-align: center;
+  }
+  #info-gerais img {
+    margin-bottom: 20px;
+  }
+}
