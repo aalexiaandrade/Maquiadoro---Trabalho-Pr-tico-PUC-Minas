@@ -1,10 +1,10 @@
-// Cole isso no TOPO do arquivo assets/js/app.js (substitua o JSON antigo)
+
 const dados = {
   "produtos": [
     {
       "id": 1,
       "nome": "Batom Matte Velvet Red",
-      "marca": "Maquiadoro", // <<< MUDANÇA AQUI
+      "marca": "Maquiadoro",
       "descricao": "Um batom vermelho intenso com acabamento matte aveludado de longa duração.",
       "conteudo": "Nosso Batom Matte Velvet Red oferece cor pigmentada em uma única passada. Fórmula enriquecida com manteiga de karité para não ressecar os lábios. Perfeito para qualquer ocasião, do dia à noite.",
       "preco": "R$ 89,90",
@@ -31,7 +31,7 @@ const dados = {
     {
       "id": 2,
       "nome": "Base Fluida HidraGlow",
-      "marca": "Maquiadoro", // <<< MUDANÇA AQUI
+      "marca": "Maquiadoro",
       "descricao": "Base de cobertura média com acabamento luminoso e natural. FPS 30.",
       "conteudo": "A Base HidraGlow uniformiza o tom da pele enquanto hidrata. Sua fórmula leve permite a construção de camadas sem pesar. Contém ácido hialurônico e FPS 30 para proteger sua pele.",
       "preco": "R$ 149,90",
@@ -53,7 +53,7 @@ const dados = {
     {
       "id": 3,
       "nome": "Paleta de Sombras Sunset",
-      "marca": "Maquiadoro", // <<< MUDANÇA AQUI
+      "marca": "Maquiadoro",
       "descricao": "12 cores ultra pigmentadas em tons quentes e terrosos (mattes e cintilantes).",
       "conteudo": "Crie looks incríveis com a Paleta Sunset. São 12 sombras que variam de mattes amanteigados a cintilantes de alto impacto. Fórmula fácil de esfumar e de longa duração.",
       "preco": "R$ 199,90",
@@ -81,10 +81,6 @@ const dados = {
 }
 
 // --- INÍCIO DO CÓDIGO DA APLICAÇÃO ---
-// (O resto do arquivo app.js continua exatamente igual)
-// ...
-// --- INÍCIO DO CÓDIGO DA APLICAÇÃO ---
-// Cole isso ABAIXO do JSON, no mesmo arquivo assets/js/app.js
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -106,10 +102,12 @@ function carregarDestaques() {
   const container = document.getElementById('carrossel-inner-container');
   if (!container) return; // Segurança
 
+  container.innerHTML = ''; // <-- CORREÇÃO 1: Limpa o "Carregando destaques..."
+
   // 1. Filtrar apenas os produtos com "destaque: true"
   const produtosDestaque = dados.produtos.filter(p => p.destaque === true);
 
-  if(produtosDestaque.length === 0) return; // Não faz nada se não houver destaques
+  if (produtosDestaque.length === 0) return; // Não faz nada se não houver destaques
 
   // 2. Gerar o HTML para cada item do carrossel
   produtosDestaque.forEach((produto, index) => {
@@ -131,11 +129,15 @@ function carregarDestaques() {
 
 function carregarTodosProdutos() {
   const container = document.getElementById('cards-container');
-  if (!container) return; // Segurança
+  if (!container) return;
+
+  container.innerHTML = ''; // <-- CORREÇÃO 2: Limpa o "Carregando produtos..."
 
   // 1. Usar TODOS os produtos
   dados.produtos.forEach(produto => {
-    
+
+    // CORREÇÃO 3: O 'const cardHtml' duplicado e quebrado foi REMOVIDO daqui.
+
     // 2. Gerar o HTML do Card para cada produto
     const cardHtml = `
       <div class="col">
@@ -172,14 +174,14 @@ function carregarDetalhesProduto() {
 
   // 2. Encontrar o produto no JSON usando o ID
   // Usamos '==' pois o id da URL é string e o do JSON é número
-  const produto = dados.produtos.find(p => p.id == idProduto); 
+  const produto = dados.produtos.find(p => p.id == idProduto);
 
   if (!produto) {
     alert('Produto não encontrado!');
     window.location.href = 'index.html'; // Se ID não existe, volta pra home
     return;
   }
-  
+
   // Mudar o <title> da página para o nome do produto
   document.title = produto.nome + " - Detalhes";
 
@@ -204,8 +206,9 @@ function carregarDetalhesProduto() {
 
   // 4. Preencher a galeria de "Fotos Vinculadas"
   const galeriaContainer = document.getElementById('galeria-container');
-  
+
   if (produto.galeria && produto.galeria.length > 0) {
+    galeriaContainer.innerHTML = ''; // Limpa antes de adicionar
     produto.galeria.forEach(foto => {
       const fotoHtml = `
         <div class="col">
@@ -222,7 +225,7 @@ function carregarDetalhesProduto() {
   } else {
     // Limpa o container e o título se não houver galeria
     const secaoGaleria = document.getElementById('fotos-vinculadas');
-    if(secaoGaleria) {
+    if (secaoGaleria) {
       secaoGaleria.innerHTML = "<p class='text-center'>Não há fotos extras para este produto.</p>";
     }
   }
